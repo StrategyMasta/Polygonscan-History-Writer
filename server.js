@@ -15,7 +15,7 @@ const server = app.listen(3000, async () => {
     if(process.env.OPTION.trim() == "observe") display(result);
     else if(process.env.OPTION.trim() == "csv") displayCSV(result);
 
-    server.close();
+    if(process.env.OPTION.trim() == "csv") server.close();
 });
 
 app.use(express.json());
