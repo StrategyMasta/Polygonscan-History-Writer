@@ -1,4 +1,4 @@
-## PL
+# PL
 # Techniczne Wymagania:
 
 ### NodeJS
@@ -16,7 +16,7 @@
 ```npm run csv```
 
 
-## EN
+# EN
 # Technical Requirements:
 
 ### NodeJS
