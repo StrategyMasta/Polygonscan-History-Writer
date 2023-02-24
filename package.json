@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ethereum-input-data-decoder": "^0.4.2",
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.0",
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "set OPTION=observe && node server.js",
+    "csv": "set OPTION=csv && node server.js"
+  },
+  "name": "projekt3",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "server.js",
+  "keywords": [],
+  "author": "Maksymilian Nowak",
+  "license": "ISC",
+  "description": ""
+}

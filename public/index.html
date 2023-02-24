@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projekt</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<h1>Witam</h1>
+<div id="wrapper">
+    <label>Strona: <input type="number" id="pageID" value="1" min="1" /></label>
+    <label>Segregowanie: 
+        <select id="sortID">
+            <option selected value="desc">Od Najnowszych</option>
+            <option value="asc">Od Najstarszych</option>
+        </select>
+    </label>
+    <label>Ilość tranzakcji na stronę: <input type="number" id="offsetID" value="10" min="1" /></label>
+    <button id="test">Submit</button>
+</div>
+
+<table cellspacing="0"></table>
+
+<script src="script.js"></script>
+
+</body>
+</html>
