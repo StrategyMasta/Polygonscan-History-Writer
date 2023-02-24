@@ -1,34 +1,34 @@
 PL
-#Techniczne Wymagania:
-
-##NodeJS
-
-#Opis:
-
-##Ta aplikacja wyświetla Twoją całą historię tranzakcji z Polygonscan prosto do konsoli.
-
-#Jak Się Z Tego Korzysta:
-
-##Aby wypisać sformatowaną historię tranzakcji, wpisz w konsoli:
+# Techniczne Wymagania:
+__
+## NodeJS
+__
+# Opis:
+__
+## Ta aplikacja wyświetla Twoją całą historię tranzakcji z Polygonscan prosto do konsoli.
+__
+# Jak Się Z Tego Korzysta:
+__
+## Aby wypisać sformatowaną historię tranzakcji, wpisz w konsoli:__
 ```npm run dev```
-
-##Aby wypisać historię tranzakcji w formacie CSV, wpisz w konsoli:
+__
+## Aby wypisać historię tranzakcji w formacie CSV, wpisz w konsoli:__
 ```npm run csv```
-
-
+__
+__
 EN
-#Technical Requirements:
-
-##NodeJS
-
-#Description:
-
-##This app prints your whole transaction history from Polygonscan to the console.
-
-#How To Use:
-
-##To print the formatted transaction history, write this in the console:
+# Technical Requirements:
+__
+## NodeJS
+__
+# Description:
+__
+## This app prints your whole transaction history from Polygonscan to the console.
+__
+# How To Use:
+__
+## To print the formatted transaction history, write this in the console:__
 ```npm run dev```
-
-##To print the transaction history in a CSV format, write this in the console:
+__
+## To print the transaction history in a CSV format, write this in the console:__
 ```npm run csv```
