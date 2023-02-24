@@ -34,7 +34,7 @@ class Refresher {
 
 const refresher = new Refresher();
 const content = {
-    timeStamp: "age",
+    timeStamp: "date",
     from: "from",
     to: "to",
     value: "value"
@@ -55,9 +55,9 @@ test.onclick = async function() {
     refresher.newTimer(page, sort, offset, result[0].hash);
     fillTable(result);
 
-    const response2 = await fetch(`test2/${page},${sort},${offset}`);
-    const result2 = await response2.json();
-    console.log(result2);
+    // const response2 = await fetch(`test2/${page},${sort},${offset}`);
+    // const result2 = await response2.json();
+    // console.log(result2);
 }
 
 async function decodeUint256(value) {
@@ -99,8 +99,7 @@ async function fillTable(result) {
         const { method } = inputResponse;
         const value = inputResponse.inputs[1].hex / 10e17;
         const to = inputResponse.inputs[0];
-        let time = new Date(0);
-        time.setUTCSeconds(result[result.indexOf(row)].timeStamp);
+        let time = new Date(result[result.indexOf(row)].timeStamp * 1000);
         //}
 
 
@@ -117,7 +116,7 @@ async function fillTable(result) {
         for(let attr of Object.entries(content)) {
             const td = document.createElement("td");
 
-            if(attr[0] == "timeStamp") td.innerText = time.toLocaleString();
+            if(attr[0] == "timeStamp") td.innerText = time.toISOString().replace("T", " ").split(".")[0];
             else if(attr[0] == "value") td.innerText = value;
             else if(attr[0] == "to") td.innerText = "0x" + to;
             else td.innerText = result[result.indexOf(row)][attr[0]];
