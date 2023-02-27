@@ -1,3 +1,5 @@
+// This Class Checks Every Minute, If There's New Data
+// And Updates The Table If Needed
 class Refresher {
     #timer;
 
@@ -10,14 +12,13 @@ class Refresher {
             const offset2 = 1;
             const page2 = index + 1;
 
-            const response = await fetch(`test/${page2},${sort},${offset2}`);
+            const response = await fetch(`transactionData/${page2},${sort},${offset2}`);
             const { result } = await response.json();
-            // console.log(result);
 
             if(result[0].hash != hash) {
                 this.clearTimer();
                 
-                const response2 = await fetch(`test/${page},${sort},${offset}`);
+                const response2 = await fetch(`transactionData/${page},${sort},${offset}`);
                 const { result: result2 } = await response2.json();
 
                 fillTable(result2);
@@ -42,14 +43,14 @@ const content = {
 
 Object.freeze(content);
 
+// Submit Button Handler
 test.onclick = async function() {
     const page = document.getElementById("pageID").value*1;
     const sort = document.getElementById("sortID").selectedOptions[0].value;
     const offset = document.getElementById("offsetID").value*1;
 
-    const response = await fetch(`test/${page},${sort},${offset}`);
+    const response = await fetch(`transactionData/${page},${sort},${offset}`);
     const { result } = await response.json();
-    // console.log(result);
 
     refresher.clearTimer();
     refresher.newTimer(page, sort, offset, result[0].hash);
@@ -60,12 +61,14 @@ test.onclick = async function() {
     // console.log(result2);
 }
 
+// This Makes A Request To The Server To Decode The Input Data
 async function decodeUint256(value) {
     const response = await fetch(`decode/${value}`);
-    const test = await response.json();
-    return test;
+    const result = await response.json();
+    return result;
 }
 
+// Fill The Table With Data
 async function fillTable(result) {
     const table = document.querySelector("table");
     table.border = "1px";
@@ -88,30 +91,13 @@ async function fillTable(result) {
 
     for(let row of result) {
         // Decoding The Input
-        let input = result[result.indexOf(row)].input;
-        //let time = Math.trunc(result[result.indexOf(row)].timeStamp / 1000);
-        
-        // Deleting The MethodId
-        //input = input.substr(result[result.indexOf(row)].methodId.length);
+        const inputResponse = await decodeUint256(row.input);
 
-        //if(result[result.indexOf(row)].methodId == "0xa9059cbb") {
-        const inputResponse = await decodeUint256(input);
-        const { method } = inputResponse;
         const value = inputResponse.inputs[1].hex / 10e17;
         const to = inputResponse.inputs[0];
-        let time = new Date(result[result.indexOf(row)].timeStamp * 1000);
-        //}
-
-
-
+        const time = new Date(row.timeStamp * 1000);
 
         const tr = document.createElement("tr");
-
-        // for(let attr of Object.entries(row)) {
-        //     const td = document.createElement("td");
-        //     td.innerText = attr[1];
-        //     tr.appendChild(td);
-        // }
 
         for(let attr of Object.entries(content)) {
             const td = document.createElement("td");
@@ -119,17 +105,10 @@ async function fillTable(result) {
             if(attr[0] == "timeStamp") td.innerText = time.toISOString().replace("T", " ").split(".")[0];
             else if(attr[0] == "value") td.innerText = value;
             else if(attr[0] == "to") td.innerText = "0x" + to;
-            else td.innerText = result[result.indexOf(row)][attr[0]];
+            else td.innerText = row[attr[0]];
             tr.appendChild(td);
         }
 
         table.appendChild(tr);
     }
 }
-
-
-// window.onload = async function() {
-//     const response = await fetch(`onload/`);
-//     const result = await response.json();
-//     console.log(result);
-// }

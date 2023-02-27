@@ -21,6 +21,9 @@
 #### Następnie otwórz nową kartę w swojej przeglądarce i w URL wpisz:
 #### localhost:3000
 
+# Jak Wyłączyć Serwer:
+
+### W konsoli wciśnij Ctrl + C, a następnie wpisz "Y", aby potwierdzić
 
 # EN
 # Technical Requirements:
@@ -44,3 +47,7 @@
 ```npm run dev```
 #### Next open your browser and open a new tab
 #### In the URL write: localhost:3000
+
+# How To Turn The Server Off:
+
+### Press Ctrl + C in the terminal, then type in "Y", to confirm
