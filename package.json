@@ -8,8 +8,10 @@
   },
   "scripts": {
     "start": "node server.js",
-    "dev": "set OPTION=observe && nodemon server.js",
-    "csv": "set OPTION=csv && node server.js"
+    "dev -win": "set OPTION=observe && nodemon server.js",
+    "csv -win": "set OPTION=csv && node server.js",
+    "dev": "OPTION=observe && nodemon server.js",
+    "csv": "OPTION=csv && node server.js",
   },
   "name": "projekt3",
   "type": "module",
