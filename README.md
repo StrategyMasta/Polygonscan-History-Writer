@@ -10,13 +10,22 @@
 # Jak Się Z Tego Korzysta:
 
 ### Aby wypisać sformatowaną historię tranzakcji oraz włączyć stronę internetową, wpisz w konsoli:
+### Windows:
+```npm run "dev -win"```
+### Linux / MacOS:
 ```npm run dev```
 
 ### Aby wypisać historię tranzakcji w formacie CSV, wpisz w konsoli:
+### Windows:
+```npm run "csv -win"```
+### Linux / MacOS:
 ```npm run csv```
 
 ### Aby otworzyć tą aplikację w formie strony internetowej:
 #### Najpierw włącz serwer za pomocą komendy:
+### Windows:
+```npm run "dev -win"```
+### Linux / MacOS:
 ```npm run dev```
 #### Następnie otwórz nową kartę w swojej przeglądarce i w URL wpisz:
 #### localhost:3000
@@ -37,13 +46,22 @@
 # How To Use:
 
 ### To print the formatted transaction history and turn the website on, write this in the console:
+### Windows:
+```npm run "dev -win"```
+### Linux / MacOS:
 ```npm run dev```
 
 ### To print the transaction history in a CSV format, write this in the console:
+### Windows:
+```npm run "csv -win"```
+### Linux / MacOS:
 ```npm run csv```
 
 ### To open this app in a website:
 #### Firstly turn the server on with this:
+### Windows:
+```npm run "dev -win"```
+### Linux / MacOS:
 ```npm run dev```
 #### Next open your browser and open a new tab
 #### In the URL write: localhost:3000
