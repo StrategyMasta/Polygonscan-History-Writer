@@ -25,8 +25,8 @@ const server = app.listen(3000, async () => {
 
 
     // The User Chooses How He'd Like To Format The Data
-    if(process.env.OPTION.trim() == "observe") display(results);
-    else if(process.env.OPTION.trim() == "csv") displayCSV(results);
+    if((process.env.OPTION + "").trim() == "observe") display(results);
+    else if((process.env.OPTION + "").trim() == "csv") displayCSV(results);
 
     // The CSV Option Also Closes The Server
     if(process.env.OPTION.trim() == "csv") server.close();
